@@ -7,12 +7,18 @@
     "start": "node app.js",
     "dev": "node app.js"
   },
-  "keywords": ["cheerleading", "panthers", "express", "ejs", "node"],
+  "keywords": [
+    "cheerleading",
+    "panthers",
+    "express",
+    "ejs",
+    "node"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.19.2",
-    "express-session": "^1.18.0"
+    "express": "^4.22.2",
+    "express-session": "^1.19.0"
   }
 }
