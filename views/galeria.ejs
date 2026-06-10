@@ -1,0 +1,25 @@
+<%- include('partials/head', { titulo }) %>
+<%- include('partials/navbar') %>
+
+<main class="page">
+  <section class="section page-header">
+    <p class="tag">Feed visual</p>
+    <h1>Galería Panthers</h1>
+    <p>Galería tipo Instagram para mostrar categorías, entrenamientos, staff, rutinas y momentos reales del club.</p>
+  </section>
+
+  <section class="section insta-grid gallery-full-grid">
+    <% galeria.forEach((item) => { %>
+      <article class="gallery-card">
+        <img src="<%= item.imagen %>" alt="<%= item.titulo %>" />
+        <div>
+          <span>#SomosPanthers</span>
+          <h3><%= item.titulo %></h3>
+          <p><%= item.descripcion %></p>
+        </div>
+      </article>
+    <% }) %>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

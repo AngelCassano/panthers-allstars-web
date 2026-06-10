@@ -1,0 +1,42 @@
+<%- include('partials/head', { titulo }) %>
+
+<main class="private-login-page">
+  <section class="private-login-brand">
+    <a href="/" class="private-back">← Volver al sitio público</a>
+    <div class="private-brand-card">
+      <img src="/img/logo-panthers.png" alt="Logo Club Panthers All Stars" />
+      <p class="tag">Acceso privado</p>
+      <h1>Panel Panthers</h1>
+      <p>Zona exclusiva para administradores del club. Desde aquí se revisan las postulaciones recibidas en el formulario público.</p>
+      <div class="private-demo-note">
+        <strong>Demo para presentación</strong>
+        <span>Correo: admin@panthers.cl</span>
+        <span>Clave: panthers2026</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="private-login-form-wrap">
+    <form action="/login-admin" method="POST" class="form-card private-login-card">
+      <p class="tag">Club Panthers All Stars</p>
+      <h2>Ingresar al administrador</h2>
+      <p class="small">Este acceso no aparece en el menú público para que la página se vea profesional frente a visitantes.</p>
+
+      <label>Correo administrador</label>
+      <input type="email" name="correo" required placeholder="admin@panthers.cl" />
+
+      <label>Contraseña</label>
+      <input type="password" name="password" required placeholder="••••••••" />
+
+      <button type="submit" class="btn btn-primary full">Entrar al panel</button>
+
+      <% if (error) { %>
+        <p class="form-response error"><%= error %></p>
+      <% } %>
+    </form>
+  </section>
+</main>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

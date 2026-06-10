@@ -1,0 +1,91 @@
+<%- include('partials/head', { titulo }) %>
+<%- include('partials/navbar') %>
+
+<main>
+  <section class="hero panthers-hero">
+    <div class="hero-content">
+      <p class="tag">Club deportivo de cheerleading · San Bernardo</p>
+      <h1>Club Panthers All Stars</h1>
+      <p class="hero-subtitle">Formamos atletas con disciplina, energía y espíritu de equipo. Somos Panthers: entrenamiento, competencia, familia y pasión por el cheerleading.</p>
+      <div class="hero-buttons">
+        <a href="/inscripcion" class="btn btn-primary">Quiero inscribirme</a>
+        <a href="/galeria" class="btn btn-outline">Ver galería</a>
+      </div>
+      <div class="social-strip">
+        <span>@club_panthers_allstars</span>
+        <span>#SomosPanthers</span>
+        <span>San Bernardo, Chile</span>
+      </div>
+    </div>
+    <div class="hero-card logo-card">
+      <img src="/img/logo-panthers.png" alt="Logo Club Panthers All Stars" class="hero-logo" />
+      <h2>Panthers All Stars</h2>
+      <p>Garra, técnica, unión y orgullo en cada rutina.</p>
+    </div>
+  </section>
+
+  <section class="section identity-section">
+    <div>
+      <p class="tag">Identidad del club</p>
+      <h2>Más que un equipo, una familia Panthers</h2>
+      <p>Esta página está construida con la identidad visual del club: azul intenso, negro, blanco y detalles rosados del logo oficial. La estructura está pensada para mostrar equipos, entrenamientos, logros, galería, contacto e inscripciones.</p>
+      <a href="/nosotros" class="link-more">Conoce la historia del club →</a>
+    </div>
+    <div class="banner-card">
+      <img src="/img/banner-panthers.jpg" alt="Pancarta Panthers Cheerleading All Stars" />
+      <div>
+        <h3>Panthers Cheerleading All Stars</h3>
+        <p>Imagen de referencia de la pancarta del club para mantener la identidad real dentro del sitio.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-section">
+    <p class="tag center">Categorías 2025</p>
+    <h2 class="center">Equipos Panthers</h2>
+    <div class="cards team-preview-grid">
+      <% equipos.forEach(equipo => { %>
+        <article class="image-card real-photo-card" style="background-image: linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.08)), url('<%= equipo.imagen %>');">
+          <span><%= equipo.etiqueta %></span>
+          <h3><%= equipo.nombre %></h3>
+          <p><%= equipo.descripcion %></p>
+        </article>
+      <% }) %>
+    </div>
+    <div class="center top-space">
+      <a href="/equipos" class="btn btn-outline">Ver todos los equipos</a>
+    </div>
+  </section>
+
+  <section class="section split sponsor-section">
+    <div class="highlight-box">
+      <p class="tag">Inscripciones</p>
+      <h2>Postula a Panthers All Stars</h2>
+      <p>Completa tus datos, experiencia y categoría de interés. El panel administrador guardará cada postulación para revisarla después.</p>
+      <a href="/inscripcion" class="btn btn-primary">Enviar postulación</a>
+    </div>
+    <div class="muni-card">
+      <p class="tag">Comuna</p>
+      <h2>San Bernardo, Santiago de Chile</h2>
+      <img src="/img/san-bernardo.png" alt="Logo Municipalidad de San Bernardo" />
+      <p>Sección preparada para mostrar la ubicación, vínculos comunales y datos oficiales que confirmen los dueños del club.</p>
+    </div>
+  </section>
+
+  <section class="section feed-section">
+    <p class="tag center">Feed Panthers</p>
+    <h2 class="center">Momentos destacados</h2>
+    <div class="insta-grid small-feed">
+      <% galeria.forEach((item) => { %>
+        <article class="insta-card" style="background-image: linear-gradient(to top, rgba(0,0,0,.9), rgba(0,0,0,.12)), url('<%= item.imagen %>');">
+          <div>
+            <span>#SomosPanthers</span>
+            <h3><%= item.titulo %></h3>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,28 @@
+<%- include('partials/head', { titulo }) %>
+<%- include('partials/navbar') %>
+
+<main class="page">
+  <section class="section page-header">
+    <p class="tag">Categorías</p>
+    <h1>Equipos Panthers 2025</h1>
+    <p>Categorías inspiradas en las publicaciones del club. Los nombres, edades y niveles pueden ajustarse cuando los dueños entreguen la información oficial completa.</p>
+  </section>
+
+  <section class="section cards teams-full-grid">
+    <% equipos.forEach(equipo => { %>
+      <article class="team-card-photo">
+        <div class="team-img" style="background-image: url('<%= equipo.imagen %>');"></div>
+        <div class="team-info">
+          <span class="pill"><%= equipo.etiqueta %></span>
+          <h2><%= equipo.nombre %></h2>
+          <p><b>Edad / división:</b> <%= equipo.edad %></p>
+          <p><b>Nivel:</b> <%= equipo.nivel %></p>
+          <p><%= equipo.descripcion %></p>
+          <a href="/inscripcion" class="link-more">Postular a esta categoría →</a>
+        </div>
+      </article>
+    <% }) %>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

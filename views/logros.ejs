@@ -1,0 +1,36 @@
+<%- include('partials/head', { titulo }) %>
+<%- include('partials/navbar') %>
+
+<main class="page">
+  <section class="section page-header">
+    <p class="tag">Orgullo Panthers</p>
+    <h1>Logros y temporada</h1>
+    <p>Sección para mostrar campeonatos, premios, participación, capacitación del staff y reconocimientos del club.</p>
+  </section>
+
+  <section class="section achievement-grid achievements-photo-grid">
+    <% logros.forEach(logro => { %>
+      <article>
+        <div class="achievement-photo" style="background-image: url('<%= logro.imagen %>');"></div>
+        <strong><%= logro.anio %></strong>
+        <h3><%= logro.titulo %></h3>
+        <p><%= logro.descripcion %></p>
+      </article>
+    <% }) %>
+  </section>
+
+  <section class="section split compact">
+    <div class="highlight-box">
+      <p class="tag">Editable</p>
+      <h2>Datos oficiales pendientes</h2>
+      <p>Cuando el club confirme sus logros oficiales, aquí se reemplazan o amplían campeonatos, años, lugares obtenidos, categorías y resultados.</p>
+    </div>
+    <div class="medal-card">
+      <img src="/img/logo-panthers.png" alt="Logo Panthers" class="medal-logo" />
+      <h2>Panthers All Stars</h2>
+      <p>Orgullo, disciplina y familia Panthers.</p>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

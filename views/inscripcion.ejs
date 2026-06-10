@@ -1,0 +1,63 @@
+<%- include('partials/head', { titulo }) %>
+<%- include('partials/navbar') %>
+
+<main class="page">
+  <section class="section page-header">
+    <p class="tag">Postulación Panthers</p>
+    <h1>Formulario de postulación</h1>
+    <p>Completa tus datos para postular al Club Panthers All Stars. El equipo revisará tu información desde el panel administrador.</p>
+  </section>
+
+  <section class="section form-section">
+    <form action="/inscripcion" method="POST" class="form-card">
+      <label>Nombre completo</label>
+      <input type="text" name="nombre" required placeholder="Ej: Angel Cassano" />
+
+      <label>Correo</label>
+      <input type="email" name="correo" required placeholder="Ej: correo@gmail.com" />
+
+      <label>Teléfono / WhatsApp</label>
+      <input type="text" name="telefono" required placeholder="Ej: +56 9 1234 5678" />
+
+      <label>Edad</label>
+      <input type="number" name="edad" min="5" max="60" required />
+
+      <label>Experiencia en cheerleading</label>
+      <select name="experiencia" required>
+        <option value="">Selecciona una opción</option>
+        <option>Sin experiencia</option>
+        <option>Principiante</option>
+        <option>Intermedio</option>
+        <option>Avanzado</option>
+      </select>
+
+      <label>Categoría de interés</label>
+      <select name="categoria" required>
+        <option value="">Selecciona una categoría</option>
+        <option>Baby Panthers 2025</option>
+        <option>Black Panthers 2025</option>
+        <option>Magic Panthers 2025</option>
+        <option>Diva Panthers 2025</option>
+        <option>Eternity Panthers 2025</option>
+        <option>Evolution Panthers 2025</option>
+        <option>Infinity Panthers 2025</option>
+        <option>No sé, necesito orientación</option>
+      </select>
+
+      <label>Mensaje adicional</label>
+      <textarea name="mensaje" rows="4" placeholder="Cuéntanos tu motivación o disponibilidad"></textarea>
+
+      <button type="submit" class="btn btn-primary full">Enviar postulación</button>
+
+      <% if (mensaje) { %>
+        <p class="form-response success"><%= mensaje %></p>
+      <% } %>
+
+      <% if (error) { %>
+        <p class="form-response error"><%= error %></p>
+      <% } %>
+    </form>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

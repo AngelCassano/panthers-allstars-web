@@ -1,0 +1,100 @@
+<%- include('partials/head', { titulo }) %>
+
+<main class="admin-layout">
+  <aside class="admin-sidebar">
+    <div class="admin-brand">
+      <img src="/img/logo-panthers.png" alt="Logo Club Panthers All Stars" />
+      <div>
+        <strong>Panthers</strong>
+        <span>Admin privado</span>
+      </div>
+    </div>
+
+    <nav class="admin-menu">
+      <a href="/panel-panthers" class="active">Postulaciones</a>
+      <a href="/">Ver sitio público</a>
+      <a href="/inscripcion">Formulario público</a>
+    </nav>
+
+    <div class="admin-sidebar-note">
+      <span>Demo</span>
+      <p>En producción estas postulaciones se guardarán en una base de datos real.</p>
+    </div>
+  </aside>
+
+  <section class="admin-main">
+    <header class="admin-topbar">
+      <div>
+        <p class="tag">Administración</p>
+        <h1>Panel de postulaciones</h1>
+      </div>
+      <a href="/logout-admin" class="btn btn-outline">Cerrar sesión</a>
+    </header>
+
+    <section class="admin-summary admin-summary-pro">
+      <div>
+        <strong><%= inscripciones.length %></strong>
+        <span>Postulaciones recibidas</span>
+      </div>
+      <div>
+        <strong>Privado</strong>
+        <span>No aparece en el menú público</span>
+      </div>
+      <div>
+        <strong>JSON</strong>
+        <span>Guardado temporal para demo</span>
+      </div>
+    </section>
+
+    <section class="admin-card">
+      <div class="admin-card-header">
+        <div>
+          <h2>Lista de postulantes</h2>
+          <p>Datos enviados desde el formulario de inscripción pública.</p>
+        </div>
+        <form action="/panel-panthers/limpiar" method="POST" onsubmit="return confirm('¿Seguro que quieres limpiar todas las postulaciones de la demo?');">
+          <button type="submit" class="btn btn-outline danger-outline">Limpiar demo</button>
+        </form>
+      </div>
+
+      <div class="table-container admin-table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Teléfono</th>
+              <th>Edad</th>
+              <th>Experiencia</th>
+              <th>Categoría</th>
+              <th>Fecha</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (inscripciones.length === 0) { %>
+              <tr>
+                <td colspan="7" class="empty-row">No hay postulaciones registradas todavía.</td>
+              </tr>
+            <% } else { %>
+              <% inscripciones.forEach(item => { %>
+                <tr>
+                  <td><strong><%= item.nombre %></strong></td>
+                  <td><%= item.correo %></td>
+                  <td><%= item.telefono %></td>
+                  <td><%= item.edad %></td>
+                  <td><%= item.experiencia %></td>
+                  <td><span class="admin-pill"><%= item.categoria %></span></td>
+                  <td><%= item.fecha %></td>
+                </tr>
+              <% }) %>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </section>
+</main>
+
+<script src="/js/main.js"></script>
+</body>
+</html>
